@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/shop" component={ShopPage} />
-        <Route exact path="/singin" component={SignInPage} />
+        <Route exact path="/signin" component={SignInPage} />
         <Route exact path="/" component={HomePage} />
       </Switch>
     </div>

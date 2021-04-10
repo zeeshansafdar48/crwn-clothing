@@ -1,3 +1,4 @@
+import CollectionItem from '../collection-item/collection-item.component';
 import './collection-preview.styles.scss';
 
 export default function CollectionPreview({ title, items }) {
@@ -8,7 +9,7 @@ export default function CollectionPreview({ title, items }) {
         {items &&
           items
             .filter((item, index) => index < 4)
-            .map((item) => <div key={item.id}>{item.name}</div>)}
+            .map(({ id, ...otherItemsProps }) => <CollectionItem key={id} {...otherItemsProps} />)}
       </div>
     </div>
   );

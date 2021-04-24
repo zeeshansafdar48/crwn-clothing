@@ -8,6 +8,7 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
 export default function Header() {
   const currentUser = useSelector((state) => state.user?.currentUser);
+  const hiddenDropdown = useSelector((state) => state.cart?.hidden);
   return (
     <div className="header">
       <Link to="/">
@@ -32,7 +33,7 @@ export default function Header() {
         )}
         <CartIcon />
       </div>
-      <CartDropdown />
+      {hiddenDropdown ? null : <CartDropdown />}
     </div>
   );
 }

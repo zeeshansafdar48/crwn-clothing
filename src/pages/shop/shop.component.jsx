@@ -4,7 +4,6 @@ import SHOP_DATA from './shop.data';
 
 function ShopPage() {
   const [collections] = useState(SHOP_DATA);
-  console.log('collections', collections);
   return (
     <div className="shop-page">
       {collections.map(({ id, ...otherCollectionsProps }) => (

@@ -1,6 +1,6 @@
 import { ReactComponent as ShoppingIcon } from '../../assets/img/shopping-bag.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleDropdown } from '../../redux/reducers/cart/cart.action';
+import { toggleDropdownHidden } from '../../redux/reducers/cart/cart.action';
 import './cart-icon.styles.scss';
 
 export default function CartIcon() {
@@ -9,7 +9,7 @@ export default function CartIcon() {
     state.cart?.cartItems?.reduce((accumulatedQuantity, cartItem) => accumulatedQuantity + cartItem?.quantity, 0)
   );
   return (
-    <div className="cart-icon" onClick={() => dispatch(toggleDropdown())}>
+    <div className="cart-icon" onClick={() => dispatch(toggleDropdownHidden())}>
       <ShoppingIcon className="shopping-icon" />
       <span className="item-count">{itemCount}</span>
     </div>

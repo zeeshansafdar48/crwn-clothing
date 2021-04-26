@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 
 import './checkout.styles.scss';
 
@@ -20,7 +21,9 @@ function Checkout() {
         <div className="header-block">Price</div>
         <div className="header-block">Remove</div>
       </div>
-      <div>{cartItems.map((cartItem) => cartItem?.name)}</div>
+      {cartItems.map((cartItem) => (
+        <CheckoutItem key={cartItem?.id} cartItem={cartItem} />
+      ))}
       <div className="total">Total: ${totalPrice}</div>
     </div>
   );

@@ -20,7 +20,7 @@ export default function CheckoutItem({ cartItem }) {
           &#10095;
         </div>
       </span>
-      <span className="price">{price}</span>
+      <span className="price">${price}</span>
       <span className="remove-button" onClick={() => dispatch(clearCartItem(cartItem))}>
         &#10005;
       </span>

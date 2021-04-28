@@ -2,8 +2,13 @@ import './header.styles.scss';
 import { ReactComponent as Logo } from '../../assets/img/crown.svg';
 import { Link } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils';
+import { useSelector } from 'react-redux';
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
-export default function Header({ currentUser }) {
+export default function Header() {
+  const currentUser = useSelector((state) => state.user?.currentUser);
+  const hiddenDropdown = useSelector((state) => state.cart?.hidden);
   return (
     <div className="header">
       <Link to="/">
@@ -26,7 +31,9 @@ export default function Header({ currentUser }) {
             SIGN IN
           </Link>
         )}
+        <CartIcon />
       </div>
+      {hiddenDropdown ? null : <CartDropdown />}
     </div>
   );
 }

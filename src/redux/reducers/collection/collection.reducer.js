@@ -10,7 +10,7 @@ const collectionReducer = (state = INITIAL_STATE, action) => {
     case CollectionTypes?.GET_COLLECTIONS_BY_ROUTE_NAME:
       return {
         ...state,
-        selectedCollections: state?.collections?.find((collection) => collection?.routeName === action?.payload),
+        selectedCollections: state?.collections[action?.payload],
       };
     default:
       return {
